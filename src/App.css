@@ -1,0 +1,39 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.App {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+	width: 100%;
+	margin-top: 2rem;
+}
+
+.App-header {
+	font-size: 1.5rem;
+}
+
+.App-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	max-width: 40rem;
+	padding: 0.5rem 2rem;
+	gap: 1rem;
+}
+
+.App-buttons {
+	display: flex;
+	gap: 2rem;
+}
+
+.App-content button {
+	padding: 0.5rem;
+}
