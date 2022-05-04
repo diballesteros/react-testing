@@ -1,24 +1,22 @@
 import React from 'react';
-import { describe, expect, it } from 'vitest';
 import {
 	render,
 	screen,
 	waitForElementToBeRemoved,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import '@testing-library/jest-dom';
 import App from './App';
 
 describe('Testing our React application', () => {
 	it('Fetch posts', async () => {
-		const user = userEvent.setup();
-
 		render(<App />);
 
-		expect(screen.getByText(/Modern React Testing/i)).toBeInTheDocument();
+		expect(screen.getByText(/Modern React Testing/i)).toBeDefined();
+
+		userEvent.click(screen.getByRole('button', { name: 'Fetch Posts' }));
 
 		await waitForElementToBeRemoved(() =>
-			screen.queryByLabelText('Loading...')
+			screen.queryByLabelText('loading')
 		);
 
 		expect(screen.getByRole('heading', { level: 3 })).toBeDefined();
