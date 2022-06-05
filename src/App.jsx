@@ -27,7 +27,10 @@ function App() {
 			</header>
 			<main className="App-content">
 				<section className="App-buttons">
-					<button onClick={fetchPosts} type="button">
+					<button
+						data-testid="fetch-posts"
+						onClick={fetchPosts}
+						type="button">
 						Fetch Posts
 					</button>
 					<button onClick={clearPosts} type="button">
@@ -35,12 +38,14 @@ function App() {
 					</button>
 				</section>
 				{loading && <p aria-label="loading">Loading</p>}
-				{posts.map((post) => (
-					<article key={post.id}>
-						<h3>{post.title}</h3>
-						<p>{post.body}</p>
-					</article>
-				))}
+				<section data-testid="posts">
+					{posts.map((post) => (
+						<article key={post.id}>
+							<h3>{post.title}</h3>
+							<p>{post.body}</p>
+						</article>
+					))}
+				</section>
 			</main>
 		</div>
 	);
